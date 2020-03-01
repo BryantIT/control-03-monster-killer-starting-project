@@ -22,9 +22,19 @@ function getMaxLifeValue(){
   if (isNaN(parsedValue) || parsedValue <= 0){
     throw {message: 'Invalid user input. Not a Number'}
   }
+  return parsedValue
 }
 
-let chosenMaxLife =getMaxLifeValue();
+let chosenMaxLife;
+
+try{
+  chosenMaxLife = getMaxLifeValue();
+} catch (error) {
+  console.log(error);
+  chosenMaxLife = 100;
+  alert('Invalid input.  Value of 100 was used to maximum health');
+}
+
 
 if (isNaN(chosenMaxLife) || chosenMaxLife <= 0){
   chosenMaxLife = 100;
